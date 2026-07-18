@@ -3,11 +3,11 @@ import "../styles/Experience.css";
 
 const timeline = [
   {
-    year: "2023 - Present",
-    title: "BSc (Hons) Information Technology",
-    company: "ESOFT Metro Campus",
+    year: "2025 - Present",
+    title: "National Diploma Technology",
+    company: "Institute of Technology, University of Moratuwa",
     description:
-      "Currently pursuing my Bachelor's degree in Information Technology while developing practical software engineering skills.",
+      "Currently pursuing my National Diploma in Information Technology while developing practical software engineering skills.",
   },
   {
     year: "2026",
