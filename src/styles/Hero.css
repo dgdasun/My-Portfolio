@@ -75,25 +75,19 @@
   width: 410px;
   height: 410px;
   border-radius: 50%;
-
   background: rgba(159, 239, 0, 0.16);
   filter: blur(75px);
-
   animation: glowPulse 3.5s ease-in-out infinite;
 }
 
 .hero-image-wrapper {
   position: relative;
   z-index: 2;
-
   width: 380px;
   height: 470px;
-
   overflow: hidden;
-
   border: 2px solid rgba(159, 239, 0, 0.7);
   border-radius: 190px 190px 42px 42px;
-
   background: #111111;
 
   box-shadow:
@@ -108,7 +102,6 @@
 
 .hero-image-wrapper:hover {
   transform: translateY(-8px);
-
   border-color: #9fef00;
 
   box-shadow:
@@ -119,12 +112,9 @@
 .hero-profile-image {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
   object-position: center 20%;
-
   transition: transform 0.5s ease;
 }
 
@@ -144,21 +134,16 @@
 
 .hero-small {
   margin-bottom: 18px;
-
   color: #9fef00;
-
   font-size: 20px;
   font-weight: 600;
 }
 
 .hero h1 {
   margin-bottom: 22px;
-
   color: #ffffff;
-
   font-size: clamp(64px, 7vw, 110px);
   line-height: 0.9;
-
   font-weight: 900;
   letter-spacing: -5px;
 }
@@ -172,20 +157,17 @@
 .typing-text {
   min-height: 52px;
   margin-bottom: 10px;
-
   color: #9fef00;
-
   font-size: clamp(26px, 2.8vw, 38px);
   line-height: 1.3;
-
   font-weight: 700;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .education {
   margin-bottom: 24px;
-
   color: #c4c4c4;
-
   font-size: 17px;
   line-height: 1.6;
   letter-spacing: 0.6px;
@@ -194,9 +176,7 @@
 .hero-description {
   max-width: 650px;
   margin-bottom: 36px;
-
   color: #a7a7a7;
-
   font-size: 18px;
   line-height: 1.8;
 }
@@ -215,17 +195,13 @@
 .btn-primary,
 .btn-secondary {
   min-width: 175px;
-
   padding: 16px 32px;
-
   border-radius: 100px;
-
   text-align: center;
-
   font-size: 16px;
   font-weight: 700;
-
   cursor: pointer;
+  text-decoration: none;
 
   transition:
     transform 0.3s ease,
@@ -238,34 +214,27 @@
 .btn-primary {
   color: #080808;
   background: #9fef00;
-
   border: 2px solid #9fef00;
 }
 
 .btn-primary:hover {
   transform: translateY(-5px);
-
   background: #b5ff00;
   border-color: #b5ff00;
-
   box-shadow: 0 15px 35px rgba(159, 239, 0, 0.25);
 }
 
 .btn-secondary {
   color: #ffffff;
   background: transparent;
-
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .btn-secondary:hover {
   transform: translateY(-5px);
-
   color: #080808;
   background: #ffffff;
-
   border-color: #ffffff;
-
   box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
 }
 
@@ -277,24 +246,20 @@
   display: flex;
   align-items: center;
   gap: 14px;
-
   margin-top: 30px;
 }
 
 .hero-socials a {
   width: 46px;
   height: 46px;
-
   display: grid;
   place-items: center;
-
   color: #ffffff;
   background: rgba(255, 255, 255, 0.03);
-
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 50%;
-
   font-size: 19px;
+  text-decoration: none;
 
   transition:
     transform 0.3s ease,
@@ -306,12 +271,9 @@
 
 .hero-socials a:hover {
   transform: translateY(-5px);
-
   color: #080808;
   background: #9fef00;
-
   border-color: #9fef00;
-
   box-shadow: 0 10px 25px rgba(159, 239, 0, 0.22);
 }
 
@@ -322,19 +284,14 @@
 .scroll-down {
   position: absolute;
   z-index: 3;
-
   bottom: 22px;
   left: 50%;
-
   transform: translateX(-50%);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
-
   color: #8f8f8f;
-
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.6px;
@@ -384,24 +341,25 @@
 
 @media screen and (max-width: 900px) {
   .hero {
-    padding-top: 120px;
+    min-height: auto;
+    padding-top: 110px;
     padding-bottom: 70px;
   }
 
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 55px;
+    gap: 48px;
   }
 
   .hero-image-wrapper {
-    width: 340px;
-    height: 420px;
+    width: 320px;
+    height: 400px;
   }
 
   .hero-content {
+    width: 100%;
     max-width: 760px;
     margin: 0 auto;
-
     text-align: center;
   }
 
@@ -430,64 +388,145 @@
 @media screen and (max-width: 560px) {
   .hero {
     min-height: auto;
+    padding: 95px 16px 50px;
+    overflow-x: hidden;
+  }
 
-    padding: 105px 15px 55px;
+  .hero::before {
+    top: 12%;
+    right: -220px;
+    width: 360px;
+    height: 360px;
+  }
+
+  .hero::after {
+    bottom: -180px;
+    left: -220px;
+    width: 360px;
+    height: 360px;
   }
 
   .hero-container {
     width: 100%;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-image-area {
+    width: 100%;
   }
 
   .hero-image-glow {
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
+    filter: blur(55px);
   }
 
   .hero-image-wrapper {
-    width: min(290px, 85vw);
-    height: 360px;
-
-    border-radius: 150px 150px 35px 35px;
+    width: min(230px, 70vw);
+    height: 290px;
+    border-radius: 120px 120px 28px 28px;
   }
 
-  .hero h1 {
-    font-size: clamp(48px, 15vw, 70px);
-    line-height: 0.95;
+  .hero-profile-image {
+    object-position: center 20%;
+  }
 
-    letter-spacing: -3px;
+  .hero-content {
+    width: 100%;
+    padding: 0 2px;
+    text-align: center;
   }
 
   .hero-small {
-    font-size: 18px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    margin-bottom: 14px;
+    font-size: clamp(38px, 11vw, 50px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    overflow-wrap: anywhere;
   }
 
   .typing-text {
-    min-height: 42px;
-
-    font-size: 23px;
+    min-height: 36px;
+    margin-bottom: 12px;
+    font-size: clamp(19px, 6vw, 24px);
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .education {
-    font-size: 15px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .hero-description {
-    font-size: 16px;
+    max-width: 100%;
+    margin-bottom: 26px;
+    font-size: 15px;
     line-height: 1.7;
   }
 
   .hero-buttons {
+    width: 100%;
     flex-direction: column;
+    justify-content: center;
+    gap: 12px;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
-    max-width: 280px;
+    max-width: 290px;
+    min-width: 0;
+    padding: 14px 24px;
+    font-size: 14px;
   }
 
   .hero-socials {
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .hero-socials a {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .scroll-down {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .hero {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-image-wrapper {
+    width: 210px;
+    height: 265px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .typing-text {
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 14px;
   }
 }
