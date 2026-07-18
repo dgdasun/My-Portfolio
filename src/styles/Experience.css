@@ -1,0 +1,111 @@
+.experience {
+  padding: 120px 20px;
+  background: #0d0d0d;
+}
+
+.experience-container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+.experience-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.experience-subtitle {
+  color: #9fef00;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.experience-heading h2 {
+  font-size: 48px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #9fef00;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 70px;
+  margin-bottom: 60px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #9fef00;
+  box-shadow: 0 0 20px rgba(159,239,0,.6);
+}
+
+.timeline-content {
+  background: #161616;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: .3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-6px);
+  border-color: #9fef00;
+}
+
+.timeline-content span {
+  color: #9fef00;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.timeline-content h3 {
+  margin: 10px 0;
+  font-size: 26px;
+}
+
+.timeline-content h4 {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.timeline-content p {
+  color: #999;
+  line-height: 1.7;
+}
+
+@media(max-width:768px){
+
+.timeline::before{
+left:12px;
+}
+
+.timeline-item{
+padding-left:45px;
+}
+
+.timeline-dot{
+left:2px;
+}
+
+.experience-heading h2{
+font-size:36px;
+}
+
+}
