@@ -1,147 +1,154 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  FaArrowRight,
+  FaCheck,
+  FaCopy,
   FaEnvelope,
   FaGithub,
   FaLinkedinIn,
   FaMapMarkerAlt,
+  FaPaperPlane,
 } from "react-icons/fa";
 
+import SectionHeading from "./SectionHeading";
+import { heroData } from "../data/heroData";
+import { handleSpotlight } from "../utils/spotlight";
 import "../styles/Contact.css";
 
+const contactLinks = [
+  {
+    icon: <FaLinkedinIn />,
+    label: "LinkedIn",
+    value: "Dasun Dilshan",
+    href: heroData.socials.linkedin,
+  },
+  {
+    icon: <FaGithub />,
+    label: "GitHub",
+    value: "github.com/dgdasun",
+    href: heroData.socials.github,
+  },
+];
+
+const reveal = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
 function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  // Opens the visitor's email app with the form contents pre-filled
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert(
-      "Your message form is ready. Later we can connect it to EmailJS or a backend API."
-    );
+    const form = new FormData(event.currentTarget);
+    const body = `${form.get("message")}\n\n— ${form.get("name")} (${form.get("email")})`;
+
+    window.location.href = `mailto:${heroData.email}?subject=${encodeURIComponent(
+      form.get("subject")
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(heroData.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = heroData.socials.email;
+    }
   };
 
   return (
-    <section className="contact" id="contact">
-      <div className="contact-container">
-        <motion.div
-          className="contact-heading"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="contact-subtitle">GET IN TOUCH</p>
+    <section className="section" id="contact">
+      <div className="container">
+        <SectionHeading
+          eyebrow="Get in touch"
+          title={
+            <>
+              Let&apos;s <span className="gradient-text">work together</span>
+            </>
+          }
+          description="Have a project idea, internship opportunity or collaboration in mind? Feel free to contact me."
+        />
 
-          <h2>Let&apos;s Work Together</h2>
-
-          <p>
-            Have a project idea, internship opportunity or collaboration in
-            mind? Feel free to contact me.
-          </p>
-        </motion.div>
-
-        <div className="contact-content">
-          <motion.div
-            className="contact-info"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="contact-info-card">
+        <div className="contact-layout">
+          <motion.div className="contact-info" {...reveal()}>
+            <div className="card contact-email" onMouseMove={handleSpotlight}>
               <div className="contact-icon">
                 <FaEnvelope />
               </div>
 
-              <div>
-                <span>Email</span>
+              <span className="contact-label">Email me at</span>
 
-                <a href="mailto:dasundilshan376@gmail.com">
-                  dasundilshan376@gmail.com
-                </a>
-              </div>
+              <a href={heroData.socials.email} className="contact-email-address">
+                {heroData.email}
+              </a>
+
+              <button type="button" className="copy-button" onClick={copyEmail}>
+                {copied ? <FaCheck /> : <FaCopy />}
+                {copied ? "Copied!" : "Copy email"}
+              </button>
             </div>
 
-            <div className="contact-info-card">
-              <div className="contact-icon">
-                <FaLinkedinIn />
-              </div>
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="card contact-link"
+                onMouseMove={handleSpotlight}
+              >
+                <div className="contact-icon">{link.icon}</div>
 
-              <div>
-                <span>LinkedIn</span>
+                <div>
+                  <span className="contact-label">{link.label}</span>
+                  <strong>{link.value}</strong>
+                </div>
 
-                <a
-                  href="https://www.linkedin.com/in/dasun-dilshan-2811b7360/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Dasun Dilshan
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-info-card">
-              <div className="contact-icon">
-                <FaGithub />
-              </div>
-
-              <div>
-                <span>GitHub</span>
-
-                <a
-                  href="https://github.com/dgdasun"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github.com/dgdasun
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-info-card">
-              <div className="contact-icon">
-                <FaMapMarkerAlt />
-              </div>
-
-              <div>
-                <span>Location</span>
-                <p>Sri Lanka</p>
-              </div>
-            </div>
+                <FaArrowRight className="contact-link-arrow" />
+              </a>
+            ))}
 
             <div className="contact-availability">
-              <span className="availability-dot"></span>
-
-              <p>Available for internships and software projects</p>
+              <span className="availability-dot" />
+              <FaMapMarkerAlt />
+              {heroData.location} · Available for internships and software
+              projects
             </div>
           </motion.div>
 
           <motion.form
-            className="contact-form"
+            className="card contact-form"
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.8 }}
+            {...reveal(0.1)}
           >
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="name">Your Name</label>
-
+                <label htmlFor="name">Your name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Enter your name"
+                  placeholder="John Doe"
+                  autoComplete="name"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Your Email</label>
-
+                <label htmlFor="email">Your email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Enter your email"
+                  placeholder="john@example.com"
+                  autoComplete="email"
                   required
                 />
               </div>
@@ -149,30 +156,29 @@ function Contact() {
 
             <div className="form-group">
               <label htmlFor="subject">Subject</label>
-
               <input
                 type="text"
                 id="subject"
                 name="subject"
-                placeholder="Enter message subject"
+                placeholder="Internship opportunity"
                 required
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="message">Message</label>
-
               <textarea
                 id="message"
                 name="message"
-                rows="7"
-                placeholder="Write your message here..."
+                rows="6"
+                placeholder="Tell me about your project..."
                 required
-              ></textarea>
+              />
             </div>
 
-            <button type="submit" className="contact-submit-button">
-              Send Message
+            <button type="submit" className="btn btn-primary contact-submit">
+              Send message
+              <FaPaperPlane />
             </button>
           </motion.form>
         </div>

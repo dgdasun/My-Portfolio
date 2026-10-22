@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { FaEye, FaDownload } from "react-icons/fa";
+import { FaAward, FaDownload, FaEye } from "react-icons/fa";
 
+import SectionHeading from "./SectionHeading";
+import { handleSpotlight } from "../utils/spotlight";
 import "../styles/Certificates.css";
 
 const certificates = [
@@ -36,40 +38,34 @@ const certificates = [
 
 function Certificates() {
   return (
-    <section className="certificates" id="certificates">
-      <div className="certificates-container">
-        <motion.div
-          className="certificates-heading"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p>CERTIFICATES</p>
-
-          <h2>Licenses & Certifications</h2>
-
-          <span>
-            A selection of certifications that support my learning journey.
-          </span>
-        </motion.div>
+    <section className="section" id="certificates">
+      <div className="container">
+        <SectionHeading
+          eyebrow="Certificates"
+          title="Licenses & certifications"
+          description="A selection of certifications that support my learning journey."
+        />
 
         <div className="certificate-grid">
           {certificates.map((certificate, index) => (
             <motion.div
-              className="certificate-card"
+              className="card certificate-card"
               key={certificate.title}
-              initial={{ opacity: 0, y: 40 }}
+              onMouseMove={handleSpotlight}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.1,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -8 }}
             >
-              <div className="certificate-year">
-                {certificate.year}
+              <div className="certificate-top">
+                <div className="certificate-icon">
+                  <FaAward />
+                </div>
+                <span className="chip">{certificate.year}</span>
               </div>
 
               <h3>{certificate.title}</h3>
@@ -81,6 +77,7 @@ function Certificates() {
                   href={certificate.preview}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={`Preview ${certificate.title} certificate`}
                 >
                   <FaEye />
                   Preview
@@ -89,6 +86,7 @@ function Certificates() {
                 <a
                   href={certificate.download}
                   download
+                  aria-label={`Download ${certificate.title} certificate`}
                 >
                   <FaDownload />
                   Download

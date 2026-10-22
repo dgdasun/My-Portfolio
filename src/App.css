@@ -1,20 +1,62 @@
-.temporary-content {
-  min-height: 100vh;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1100;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  transform-origin: 0 50%;
 }
 
-.temporary-content h1 {
-  font-size: clamp(48px, 8vw, 100px);
-  line-height: 1;
+/* Fixed decorative layer behind every section */
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.temporary-content p {
-  margin-top: 20px;
-  color: #a3a3a3;
-  font-size: 18px;
+.page-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+
+.page-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  filter: blur(120px);
+  opacity: 0.55;
+}
+
+.page-orb-one {
+  top: -200px;
+  left: 50%;
+  width: 620px;
+  height: 420px;
+  transform: translateX(-50%);
+  animation: orbFloat 14s ease-in-out infinite;
+}
+
+.page-orb-two {
+  bottom: -260px;
+  right: -160px;
+  width: 480px;
+  height: 480px;
+  opacity: 0.3;
+  animation: orbFloat 18s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 40px 30px;
+  }
 }

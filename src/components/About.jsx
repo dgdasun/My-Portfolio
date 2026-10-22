@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
 import {
+  FaArrowRight,
+  FaCertificate,
   FaCode,
   FaGraduationCap,
   FaLaptopCode,
-  FaCertificate,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
+import SectionHeading from "./SectionHeading";
+import { handleSpotlight } from "../utils/spotlight";
 import "../styles/About.css";
 
 const statistics = [
@@ -31,30 +35,40 @@ const statistics = [
   },
 ];
 
+const details = [
+  { label: "Name", value: "Dasun Dilshan" },
+  { label: "Education", value: "IT Undergraduate" },
+  { label: "Focus", value: "Full-Stack Development" },
+];
+
+const reveal = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
 function About() {
   return (
-    <section className="about" id="about">
-      <div className="about-container">
-        <motion.div
-          className="about-heading"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="section-subtitle">ABOUT ME</p>
-          <h2>Turning Ideas Into Digital Solutions</h2>
-        </motion.div>
+    <section className="section" id="about">
+      <div className="container">
+        <SectionHeading
+          eyebrow="About me"
+          title={
+            <>
+              Turning ideas into{" "}
+              <span className="gradient-text">digital solutions</span>
+            </>
+          }
+        />
 
-        <div className="about-content">
+        <div className="about-bento">
           <motion.div
-            className="about-description"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.8 }}
+            className="card about-story"
+            onMouseMove={handleSpotlight}
+            {...reveal()}
           >
-            <p>
+            <p className="about-lead">
               I am an Information Technology undergraduate and aspiring
               full-stack developer from Sri Lanka.
             </p>
@@ -62,8 +76,8 @@ function About() {
             <p>
               I enjoy building practical, responsive and user-friendly
               applications using Java, Spring Boot, React and MySQL. I am
-              continuously improving my knowledge in backend development,
-              REST APIs, database design and modern frontend technologies.
+              continuously improving my knowledge in backend development, REST
+              APIs, database design and modern frontend technologies.
             </p>
 
             <p>
@@ -71,48 +85,44 @@ function About() {
               reliable digital solutions that solve real-world problems.
             </p>
 
-            <div className="about-details">
-              <div>
-                <span>Name</span>
-                <strong>Dasun Dilshan</strong>
-              </div>
-
-              <div>
-                <span>Location</span>
-                <strong>Sri Lanka</strong>
-              </div>
-
-              <div>
-                <span>Education</span>
-                <strong>IT Undergraduate</strong>
-              </div>
-
-              <div>
-                <span>Focus</span>
-                <strong>Full-Stack Development</strong>
-              </div>
-            </div>
-
-            <a href="#contact" className="about-button">
-              Contact Me
+            <a href="#contact" className="btn btn-ghost about-button">
+              Get in touch
+              <FaArrowRight />
             </a>
           </motion.div>
 
           <motion.div
-            className="about-stats"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.8 }}
+            className="card about-details"
+            onMouseMove={handleSpotlight}
+            {...reveal(0.1)}
           >
-            {statistics.map((stat) => (
-              <div className="stat-card" key={stat.label}>
-                <div className="stat-icon">{stat.icon}</div>
-                <h3>{stat.number}</h3>
-                <p>{stat.label}</p>
-              </div>
-            ))}
+            <div className="about-location">
+              <FaMapMarkerAlt />
+              <span>Based in Sri Lanka</span>
+            </div>
+
+            <dl>
+              {details.map((detail) => (
+                <div key={detail.label}>
+                  <dt>{detail.label}</dt>
+                  <dd>{detail.value}</dd>
+                </div>
+              ))}
+            </dl>
           </motion.div>
+
+          {statistics.map((stat, index) => (
+            <motion.div
+              className="card stat-card"
+              key={stat.label}
+              onMouseMove={handleSpotlight}
+              {...reveal(0.15 + index * 0.06)}
+            >
+              <div className="stat-icon">{stat.icon}</div>
+              <strong>{stat.number}</strong>
+              <span>{stat.label}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

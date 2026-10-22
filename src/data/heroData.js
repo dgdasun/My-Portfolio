@@ -6,7 +6,7 @@ export const heroData = {
   education: "Software Engineering Undergraduate",
 
   description:
-    "I create scalable, modern and responsive web applications using Java, Spring Boot, React and MySQL.",
+    "I create scalable, modern and responsive web applications using Java, Spring Boot, React and MySQL, with a strong focus on clean code and excellent user experiences.",
 
   roles: [
     "Full Stack Developer",
@@ -15,6 +15,12 @@ export const heroData = {
     "React Developer",
     "AI Enthusiast",
   ],
+
+  email: "dasundilshan376@gmail.com",
+
+  location: "Sri Lanka",
+
+  resume: "/resume/Dasun_Dilshan_CV.pdf",
 
   socials: {
     github: "https://github.com/dgdasun",

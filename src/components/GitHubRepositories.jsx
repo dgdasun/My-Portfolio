@@ -1,41 +1,76 @@
 import { useEffect, useState } from "react";
-import { FaGithub, FaStar, FaCodeBranch } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaArrowRight, FaCodeBranch, FaRegFolder, FaStar } from "react-icons/fa";
 
+import { handleSpotlight } from "../utils/spotlight";
 import "../styles/GitHubRepositories.css";
+
+const GITHUB_USERNAME = "dgdasun";
 
 function GitHubRepositories() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     fetch(
-      "https://api.github.com/users/dgdasun/repos?sort=updated&per_page=6"
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`
     )
       .then((res) => res.json())
-      .then((data) => setRepos(data))
+      // A rate-limited response is an error object, not an array
+      .then((data) => setRepos(Array.isArray(data) ? data : []))
       .catch((err) => console.error(err));
   }, []);
 
+  if (repos.length === 0) return null;
+
   return (
     <section className="repositories" id="repositories">
-      <div className="repositories-container">
+      <div className="container">
         <div className="repositories-heading">
-          <p>MY WORK</p>
+          <h3>Recently updated repositories</h3>
 
-          <h2>Latest GitHub Projects</h2>
-
-          <span>
-            These repositories are loaded directly from my GitHub profile.
-          </span>
+          <a
+            href={`https://github.com/${GITHUB_USERNAME}?tab=repositories`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View all
+            <FaArrowRight />
+          </a>
         </div>
 
         <div className="repositories-grid">
-          {repos.map((repo) => (
-            <div className="repo-card" key={repo.id}>
-              <h3>{repo.name}</h3>
+          {repos.map((repo, index) => (
+            <motion.a
+              className="card repo-card"
+              key={repo.id}
+              href={repo.html_url}
+              target="_blank"
+              rel="noreferrer"
+              onMouseMove={handleSpotlight}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                delay: (index % 3) * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <div className="repo-top">
+                <FaRegFolder className="repo-folder" />
+                <FaArrowRight className="repo-arrow" />
+              </div>
+
+              <h4>{repo.name}</h4>
 
               <p>{repo.description || "No description available."}</p>
 
               <div className="repo-info">
+                <span className="repo-language">
+                  <span className="language-dot" />
+                  {repo.language || "Unknown"}
+                </span>
+
                 <span>
                   <FaStar />
                   {repo.stargazers_count}
@@ -43,23 +78,10 @@ function GitHubRepositories() {
 
                 <span>
                   <FaCodeBranch />
-                  {repo.default_branch}
+                  {repo.forks_count}
                 </span>
               </div>
-
-              <div className="repo-language">
-                {repo.language || "Unknown"}
-              </div>
-
-              <a
-                href={repo.html_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub />
-                View Repository
-              </a>
-            </div>
+            </motion.a>
           ))}
         </div>
       </div>

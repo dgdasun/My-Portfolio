@@ -1,165 +1,135 @@
-.repositories{
-padding:120px 20px;
-background:#090909;
+/* Sits directly under the GitHub stats section, so it has no top padding */
+.repositories {
+  padding: 0 20px 120px;
 }
 
-.repositories-container{
-width:min(1100px,90%);
-margin:auto;
+.repositories-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
-.repositories-heading{
-text-align:center;
-margin-bottom:60px;
+.repositories-heading h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.repositories-heading p{
-color:#9fef00;
-letter-spacing:3px;
-font-size:14px;
-margin-bottom:15px;
+.repositories-heading a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.repositories-heading h2{
-font-size:48px;
-margin-bottom:15px;
+.repositories-heading a svg {
+  font-size: 12px;
+  transition: transform 0.25s var(--ease);
 }
 
-.repositories-heading span{
-color:#999;
+.repositories-heading a:hover svg {
+  transform: translateX(4px);
 }
 
-.repositories-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-
+.repositories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-.repo-card{
-
-padding:30px;
-
-background:#151515;
-
-border-radius:20px;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.3s;
-
-display:flex;
-flex-direction:column;
-
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
 
-.repo-card:hover{
-
-transform:translateY(-8px);
-
-border-color:#9fef00;
-
+.repo-card:hover {
+  transform: translateY(-4px);
 }
 
-.repo-card h3{
-
-margin-bottom:15px;
-
-font-size:24px;
-
+.repo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
 }
 
-.repo-card p{
-
-color:#999;
-
-line-height:1.7;
-
-flex:1;
-
-margin-bottom:20px;
-
+.repo-folder {
+  color: var(--accent);
+  font-size: 26px;
 }
 
-.repo-info{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-bottom:20px;
-
-color:#ccc;
-
+.repo-arrow {
+  color: var(--text-faint);
+  font-size: 14px;
+  transform: rotate(-45deg);
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
-.repo-info span{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
+.repo-card:hover .repo-arrow {
+  color: var(--accent);
+  transform: rotate(-45deg) translateX(3px);
 }
 
-.repo-language{
-
-display:inline-block;
-
-width:max-content;
-
-padding:8px 14px;
-
-background:#9fef00;
-
-color:#000;
-
-border-radius:30px;
-
-font-size:13px;
-
-font-weight:bold;
-
-margin-bottom:25px;
-
+.repo-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  word-break: break-word;
 }
 
-.repo-card a{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:10px;
-
-padding:12px 22px;
-
-background:#222;
-
-color:#fff;
-
-border-radius:50px;
-
-transition:.3s;
-
+.repo-card p {
+  display: -webkit-box;
+  margin-top: 8px;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
-.repo-card a:hover{
-
-background:#9fef00;
-
-color:#000;
-
+.repo-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 
-@media(max-width:768px){
-
-.repositories-heading h2{
-
-font-size:36px;
-
+.repo-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
+.language-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (max-width: 960px) {
+  .repositories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .repositories {
+    padding: 0 16px 88px;
+  }
+
+  .repositories-grid {
+    grid-template-columns: 1fr;
+  }
 }

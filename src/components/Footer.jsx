@@ -1,12 +1,27 @@
 import {
-  FaGithub,
-  FaLinkedinIn,
-  FaFacebookF,
-  FaInstagram,
   FaArrowUp,
+  FaFacebookF,
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
 } from "react-icons/fa";
 
+import { heroData } from "../data/heroData";
 import "../styles/Footer.css";
+
+const socialLinks = [
+  { href: heroData.socials.github, label: "GitHub", icon: <FaGithub /> },
+  { href: heroData.socials.linkedin, label: "LinkedIn", icon: <FaLinkedinIn /> },
+  { href: heroData.socials.facebook, label: "Facebook", icon: <FaFacebookF /> },
+  { href: heroData.socials.instagram, label: "Instagram", icon: <FaInstagram /> },
+];
+
+const footerLinks = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
 
 function Footer() {
   const scrollTop = () => {
@@ -18,58 +33,51 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer-container">
+      <div className="container">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <a href="#home" className="footer-logo">
+              Dasun<span>.</span>
+            </a>
 
-        <div className="footer-logo">
-          <h2>Dasun.</h2>
+            <p>Full Stack Developer · Java · Spring Boot · React</p>
+          </div>
 
-          <p>
-            Full Stack Developer | Java | Spring Boot | React
-          </p>
+          <nav className="footer-nav" aria-label="Footer navigation">
+            {footerLinks.map((link) => (
+              <a key={link.href} href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="footer-socials">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
-        <div className="footer-socials">
-          <a
-            href="https://github.com/dgdasun"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaGithub />
-          </a>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Dasun Dilshan. All rights reserved.</p>
 
-          <a
-            href="https://www.linkedin.com/in/dasun-dilshan-2811b7360/"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            className="scroll-top"
+            onClick={scrollTop}
+            aria-label="Back to top"
           >
-            <FaLinkedinIn />
-          </a>
-
-          <a
-            href="https://web.facebook.com/dasun.dilshan.9212"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaFacebookF />
-          </a>
-
-          <a
-            href="https://instagram.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram />
-          </a>
+            Back to top
+            <FaArrowUp />
+          </button>
         </div>
-
-        <button className="scroll-top" onClick={scrollTop}>
-          <FaArrowUp />
-        </button>
-
-      </div>
-
-      <div className="footer-bottom">
-        © {new Date().getFullYear()} Dasun Dilshan. All Rights Reserved.
       </div>
     </footer>
   );
