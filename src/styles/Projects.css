@@ -74,6 +74,15 @@
   padding: 30px;
 }
 
+.project-role {
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .project-body h3 {
   font-size: 23px;
   font-weight: 700;

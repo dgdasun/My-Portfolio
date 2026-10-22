@@ -7,32 +7,46 @@ import "../styles/Certificates.css";
 
 const certificates = [
   {
-    title: "Java Programming",
-    issuer: "Oracle / Course Provider",
-    year: "2025",
-    preview: "/certificates/java.pdf",
-    download: "/certificates/java.pdf",
-  },
-  {
-    title: "Spring Boot Development",
-    issuer: "Udemy",
-    year: "2025",
-    preview: "/certificates/springboot.pdf",
-    download: "/certificates/springboot.pdf",
-  },
-  {
-    title: "React Development",
-    issuer: "Coursera",
+    title: "Operating Systems Basics",
+    issuer: "Cisco Networking Academy",
     year: "2026",
-    preview: "/certificates/react.pdf",
-    download: "/certificates/react.pdf",
+    preview: "/certificates/cisco-operating-systems-basics.pdf",
+    download: "/certificates/cisco-operating-systems-basics.pdf",
   },
   {
-    title: "UI/UX Design",
-    issuer: "Figma",
+    title: "AI/ML Engineer - Stage 2",
+    issuer: "SLIIT – Faculty of Computing",
     year: "2026",
-    preview: "/certificates/figma.pdf",
-    download: "/certificates/figma.pdf",
+    preview: "/certificates/sliit-ai-ml-engineer-stage-2.pdf",
+    download: "/certificates/sliit-ai-ml-engineer-stage-2.pdf",
+  },
+  {
+    title: "AI/ML Engineer - Stage 1",
+    issuer: "SLIIT – Faculty of Computing",
+    year: "2026",
+    preview: "/certificates/sliit-ai-ml-engineer-stage-1.pdf",
+    download: "/certificates/sliit-ai-ml-engineer-stage-1.pdf",
+  },
+  {
+    title: "Introduction to Modern AI",
+    issuer: "Cisco Networking Academy",
+    year: "2026",
+    preview: "/certificates/cisco-intro-to-modern-ai.pdf",
+    download: "/certificates/cisco-intro-to-modern-ai.pdf",
+  },
+  {
+    title: "Google AI Essentials",
+    issuer: "Google / Coursera",
+    year: "2025",
+    preview: "/certificates/google-ai-essentials.pdf",
+    download: "/certificates/google-ai-essentials.pdf",
+  },
+  {
+    title: "Python for Beginners",
+    issuer: "University of Moratuwa – CODL",
+    year: "2023",
+    preview: "/certificates/uom-python-for-beginners.png",
+    download: "/certificates/uom-python-for-beginners.png",
   },
 ];
 
