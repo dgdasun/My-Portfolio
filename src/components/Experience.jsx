@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaBriefcase, FaCode, FaGraduationCap } from "react-icons/fa";
+import { FaBriefcase, FaCode, FaGraduationCap, FaUsers } from "react-icons/fa";
 
 import SectionHeading from "./SectionHeading";
 import { handleSpotlight } from "../utils/spotlight";
@@ -13,6 +13,14 @@ const timeline = [
     description:
       "Currently pursuing my National Diploma in Information Technology while developing practical software engineering skills.",
     icon: <FaGraduationCap />,
+  },
+  {
+    year: "2026",
+    title: "Smart Surplus Food Redistribution System",
+    company: "Final Year Project · Group Leader",
+    description:
+      "Led a 6-member team building an AI-powered platform that redistributes near-expiry surplus food. Owned the AI layer — priority matching and surplus prediction services built with Python/FastAPI.",
+    icon: <FaUsers />,
   },
   {
     year: "2026",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   FaArrowRight,
   FaCheck,
@@ -40,17 +41,28 @@ const reveal = (delay = 0) => ({
 
 function Contact() {
   const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState("idle");
 
-  // Opens the visitor's email app with the form contents pre-filled
-  const handleSubmit = (event) => {
+  // Sends the form through EmailJS; field names match the template variables
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
-    const body = `${form.get("message")}\n\n— ${form.get("name")} (${form.get("email")})`;
+    const formElement = event.currentTarget;
+    setStatus("sending");
 
-    window.location.href = `mailto:${heroData.email}?subject=${encodeURIComponent(
-      form.get("subject")
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formElement,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+      );
+      formElement.reset();
+      setStatus("sent");
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+    }
   };
 
   const copyEmail = async () => {
@@ -176,10 +188,27 @@ function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary contact-submit">
-              Send message
+            <button
+              type="submit"
+              className="btn btn-primary contact-submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending..." : "Send message"}
               <FaPaperPlane />
             </button>
+
+            {status === "sent" && (
+              <p className="form-status form-status-success" role="status">
+                Thanks! Your message has been sent. I&apos;ll get back to you soon.
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="form-status form-status-error" role="alert">
+                Something went wrong. Please try again or email me directly at{" "}
+                {heroData.email}.
+              </p>
+            )}
           </motion.form>
         </div>
       </div>
