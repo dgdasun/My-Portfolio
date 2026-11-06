@@ -7,6 +7,20 @@ import "../styles/Certificates.css";
 
 const certificates = [
   {
+    title: "Python Essentials 1",
+    issuer: "Cisco Networking Academy",
+    year: "2026",
+    preview: "/certificates/cisco-python-essentials-1.pdf",
+    download: "/certificates/cisco-python-essentials-1.pdf",
+  },
+  {
+    title: "JavaScript Essentials 1",
+    issuer: "Cisco Networking Academy",
+    year: "2026",
+    preview: "/certificates/cisco-javascript-essentials-1.pdf",
+    download: "/certificates/cisco-javascript-essentials-1.pdf",
+  },
+  {
     title: "Operating Systems Basics",
     issuer: "Cisco Networking Academy",
     year: "2026",
