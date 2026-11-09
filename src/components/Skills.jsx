@@ -8,8 +8,20 @@ import {
   FaJava,
   FaReact,
 } from "react-icons/fa";
-import { SiJavascript, SiMysql, SiPostman, SiSpringboot } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
+import {
+  SiClaude,
+  SiFastapi,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiPhp,
+  SiPostman,
+  SiPython,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { TbApi, TbChartLine, TbMessageChatbot, TbMoodSmile } from "react-icons/tb";
 
 import SectionHeading from "./SectionHeading";
 import { handleSpotlight } from "../utils/spotlight";
@@ -22,8 +34,11 @@ const skillGroups = [
     skills: [
       { name: "Java", icon: <FaJava />, color: "#f89820" },
       { name: "Spring Boot", icon: <SiSpringboot />, color: "#6db33f" },
+      { name: "Python", icon: <SiPython />, color: "#3776ab" },
+      { name: "PHP", icon: <SiPhp />, color: "#777bb4" },
       { name: "REST API", icon: <TbApi />, color: "var(--accent)" },
       { name: "MySQL", icon: <SiMysql />, color: "#4479a1" },
+      { name: "MongoDB", icon: <SiMongodb />, color: "#47a248" },
     ],
   },
   {
@@ -31,9 +46,22 @@ const skillGroups = [
     description: "Responsive, accessible interfaces.",
     skills: [
       { name: "React", icon: <FaReact />, color: "#58c4dc" },
+      { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
       { name: "JavaScript", icon: <SiJavascript />, color: "#f7df1e" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "#38bdf8" },
       { name: "HTML5", icon: <FaHtml5 />, color: "#e34f26" },
       { name: "CSS3", icon: <FaCss3Alt />, color: "#2965f1" },
+    ],
+  },
+  {
+    title: "AI / ML",
+    description: "Intelligent features and data.",
+    skills: [
+      { name: "Claude API", icon: <SiClaude />, color: "#d97757" },
+      { name: "FastAPI", icon: <SiFastapi />, color: "#009688" },
+      { name: "Forecasting", icon: <TbChartLine />, color: "var(--accent)" },
+      { name: "Sentiment Analysis", icon: <TbMoodSmile />, color: "var(--accent)" },
+      { name: "Prompt Engineering", icon: <TbMessageChatbot />, color: "var(--accent)" },
     ],
   },
   {

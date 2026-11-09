@@ -23,6 +23,25 @@ const projects = [
     liveDemo: "#",
   },
   {
+    title: "TourMate AI – AI-Driven Smart Tourism Platform for Sri Lanka",
+    role: "SLTDA Tourism Start-Up Competition 2026",
+    description:
+      "AI trip planner that scores destinations on interests, monsoon-aware weather, crowds and sustainability, plus a 24/7 Claude-powered assistant in English, Sinhala and Tamil. Includes 12-month demand forecasting (seasonal time-series), live crowd monitoring and review sentiment analysis, served through a REST API secured with JWT and role-based access.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Leaflet",
+      "Java 21",
+      "Spring Boot",
+      "Spring Security",
+      "MySQL",
+      "Claude API",
+    ],
+    github: "https://github.com/dgdasun",
+    liveDemo: "#",
+  },
+  {
     title: "Nandana Stores – ERP & POS System",
     description:
       "An ERP and point-of-sale system for a retail store, with a React/TypeScript front-end and a Spring Boot 3 / Java 17 back-end persisting data through Spring Data JPA and MySQL.",
@@ -90,14 +109,6 @@ const projects = [
     description:
       "An AI-powered chatbot that provides fast and helpful customer support responses using the OpenAI API.",
     technologies: ["Java", "Spring Boot", "React", "OpenAI API"],
-    github: "https://github.com/dgdasun",
-    liveDemo: "#",
-  },
-  {
-    title: "TourMate AI",
-    description:
-      "An intelligent tourism platform that helps travellers discover destinations, create travel plans and receive personalized recommendations.",
-    technologies: ["Java", "Spring Boot", "React", "MySQL"],
     github: "https://github.com/dgdasun",
     liveDemo: "#",
   },

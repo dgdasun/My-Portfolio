@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { FaBriefcase, FaCode, FaGraduationCap, FaUsers } from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaCode,
+  FaGraduationCap,
+  FaTrophy,
+  FaUsers,
+} from "react-icons/fa";
 
 import SectionHeading from "./SectionHeading";
 import { handleSpotlight } from "../utils/spotlight";
@@ -7,12 +13,28 @@ import "../styles/Experience.css";
 
 const timeline = [
   {
-    year: "2025 - Present",
-    title: "National Diploma Technology",
+    year: "2018 - 2022",
+    title: "GCE Ordinary & Advanced Level",
+    company: "H/Walasmulla National School",
+    description:
+      "Completed GCE Ordinary Level (2018) and GCE Advanced Level (2022) in Walasmulla, Sri Lanka.",
+    icon: <FaGraduationCap />,
+  },
+  {
+    year: "Jan 2025 - Present",
+    title: "Diploma in Information Technology",
     company: "Institute of Technology, University of Moratuwa",
     description:
-      "Currently pursuing my National Diploma in Information Technology while developing practical software engineering skills.",
+      "Currently pursuing my Diploma in Information Technology in Homagama while building full-stack and AI-powered software projects.",
     icon: <FaGraduationCap />,
+  },
+  {
+    year: "2025",
+    title: "Finalist – VERTEX 2025 Robotics Challenge",
+    company: "Achievement · ITUM",
+    description:
+      "Reached the finals of the VERTEX 2025 Robotics Challenge organised by the Institute of Technology, University of Moratuwa.",
+    icon: <FaTrophy />,
   },
   {
     year: "2026",
@@ -41,17 +63,17 @@ const timeline = [
   {
     year: "2026",
     title: "TourMate AI",
-    company: "Personal Project",
+    company: "SLTDA Tourism Start-Up Competition 2026",
     description:
-      "Developed an AI tourism platform with personalized travel recommendations and itinerary planning.",
+      "Built an AI-driven smart tourism platform for Sri Lanka with a monsoon-aware trip planner, demand forecasting and a Claude-powered assistant in English, Sinhala and Tamil.",
     icon: <FaCode />,
   },
   {
     year: "Future",
-    title: "Software Engineer",
-    company: "Career Goal",
+    title: "Software Engineer Intern",
+    company: "Next Step",
     description:
-      "Seeking opportunities to contribute to innovative software projects while continuously learning new technologies.",
+      "Seeking a software engineering internship to contribute to real-world products while continuously learning new technologies.",
     icon: <FaBriefcase />,
     upcoming: true,
   },

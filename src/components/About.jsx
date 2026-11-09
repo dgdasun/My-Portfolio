@@ -15,17 +15,17 @@ import "../styles/About.css";
 const statistics = [
   {
     icon: <FaLaptopCode />,
-    number: "04+",
+    number: "10+",
     label: "Projects",
   },
   {
     icon: <FaCode />,
-    number: "12+",
+    number: "15+",
     label: "Technologies",
   },
   {
     icon: <FaCertificate />,
-    number: "05+",
+    number: "08",
     label: "Certificates",
   },
   {
@@ -37,8 +37,9 @@ const statistics = [
 
 const details = [
   { label: "Name", value: "Dasun Dilshan" },
-  { label: "Education", value: "IT Undergraduate" },
-  { label: "Focus", value: "Full-Stack Development" },
+  { label: "Education", value: "Diploma in IT · ITUM" },
+  { label: "Focus", value: "Full-Stack & AI" },
+  { label: "Seeking", value: "Software Engineering Internship" },
 ];
 
 const reveal = (delay = 0) => ({
@@ -69,20 +70,22 @@ function About() {
             {...reveal()}
           >
             <p className="about-lead">
-              I am an Information Technology undergraduate and aspiring
-              full-stack developer from Sri Lanka.
+              I am an Information Technology student at the Institute of
+              Technology, University of Moratuwa, seeking a software
+              engineering internship.
             </p>
 
             <p>
-              I enjoy building practical, responsive and user-friendly
-              applications using Java, Spring Boot, React and MySQL. I am
-              continuously improving my knowledge in backend development, REST
-              APIs, database design and modern frontend technologies.
+              I have hands-on experience designing and building full-stack web
+              applications, RESTful services and database systems using Python,
+              Java, Spring Boot, React and MySQL, along with coursework and
+              certifications in AI/ML solutions and prompt engineering.
             </p>
 
             <p>
-              My goal is to become a professional software engineer and create
-              reliable digital solutions that solve real-world problems.
+              I combine solid technical foundations with strong
+              problem-solving, structured organization and collaborative
+              teamwork to deliver efficient software solutions.
             </p>
 
             <a href="#contact" className="btn btn-ghost about-button">

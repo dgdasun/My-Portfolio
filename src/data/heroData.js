@@ -3,12 +3,13 @@ export const heroData = {
 
   greeting: "Hello, I'm",
 
-  education: "Software Engineering Undergraduate",
+  education: "Information Technology Student · University of Moratuwa",
 
   description:
-    "I create scalable, modern and responsive web applications using Java, Spring Boot, React and MySQL, with a strong focus on clean code and excellent user experiences.",
+    "IT student at the Institute of Technology, University of Moratuwa, building full-stack web applications, RESTful services and AI-powered features with Java, Spring Boot, React, Python and MySQL.",
 
   roles: [
+    "Software Engineer Intern",
     "Full Stack Developer",
     "Java Developer",
     "Spring Boot Developer",
